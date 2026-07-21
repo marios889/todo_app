@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/utils/dialog_box.dart';
 import 'package:todo_app/utils/todo_tile.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,6 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  TextEditingController controller = TextEditingController();
+
   // list of todo Tasks
   List toDoTiles = [
     ["Study Flutter course", false],
@@ -20,11 +23,57 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  //save new task
+  void saveNewTask() {
+    setState(() {
+      toDoTiles.add([controller.text, false]);
+      controller.clear();
+    });
+    Navigator.of(context).pop();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  // create new Task
+  void createNewTask() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return DialogBox(
+          controller: controller,
+          onCancel: () => Navigator.pop(context),
+          onSaved: saveNewTask,
+        );
+      },
+    );
+  }
+
+  //delete a task
+  void deleteTask(int index) {
+    setState(() {
+      toDoTiles.removeAt(index);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow[200],
-      appBar: AppBar(title: Text("To DO"), elevation: 0.0),
+      backgroundColor: Theme.of(context).primaryColor.withValues(alpha: 0.92),
+      appBar: AppBar(
+        title: Text("TO DO"),
+        elevation: 0.0,
+        centerTitle: true,
+        backgroundColor: Theme.of(context).primaryColor,
+        titleTextStyle: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 22,
+          color: Colors.black,
+        ),
+      ),
       body: ListView.builder(
         itemCount: toDoTiles.length,
         itemBuilder: (context, index) {
@@ -32,8 +81,14 @@ class _HomePageState extends State<HomePage> {
             taskName: toDoTiles[index][0],
             taskCompleted: toDoTiles[index][1],
             onChanged: (value) => checkBoxChanged(value, index),
+            deleteFunction: (context) => deleteTask(index),
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: createNewTask,
+        backgroundColor: Theme.of(context).primaryColor,
+        child: Icon(Icons.add),
       ),
     );
   }
