@@ -15,7 +15,18 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.yellow[200],
       appBar: AppBar(title: Text("To DO"), elevation: 0.0),
       body: ListView(
-        children: [TodoTile(), TodoTile(), TodoTile(), TodoTile()],
+        children: [
+          TodoTile(
+            taskName: "Study flutter course",
+            taskCompleted: true,
+            onChanged: (p0) {},
+          ),
+          TodoTile(
+            taskName: "Do Exercise",
+            taskCompleted: true,
+            onChanged: (p0) {},
+          ),
+        ],
       ),
     );
   }
