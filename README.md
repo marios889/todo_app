@@ -48,13 +48,13 @@ Make sure you have the Flutter SDK installed on your system.
 
 ### Installation
 1. Clone the repository:
-   git clone https://github.com/marios889/todo_app.git
+   ```git clone https://github.com/marios889/todo_app.git```
 
 2. Navigate to the project root:
-   cd todo-app
+   ```cd todo-app```
 
 3. Fetch dependencies:
-   flutter pub get
+   ```flutter pub get```
 
 4. Run the application:
    flutter run
