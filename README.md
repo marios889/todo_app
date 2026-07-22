@@ -19,7 +19,7 @@ A lightweight, responsive cross-platform mobile application designed to manage d
 ## 🏗️ Architecture & Code Structure
 
 The project follows a clean separation between UI components, custom utility widgets, and the local database layer:
-
+```text
 lib/
 ├── data/
 │   └── database.dart        # Hive database initialization & CRUD methods
@@ -29,7 +29,7 @@ lib/
     ├── dialog_box.dart      # Reusable modal alert component for task creation
     ├── my_button.dart       # Modular styled buttons
     └── todo_tile.dart       # Slidable list item card wrapped in flutter_slidable
-
+```
 ---
 
 ## 🛠️ Tech Stack & Dependencies
@@ -48,10 +48,10 @@ Make sure you have the Flutter SDK installed on your system.
 
 ### Installation
 1. Clone the repository:
-   git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+   git clone https://github.com/marios889/todo-app.git
 
 2. Navigate to the project root:
-   cd YOUR_REPO_NAME
+   cd todo-app
 
 3. Fetch dependencies:
    flutter pub get
