@@ -1,5 +1,7 @@
 # 📝 Minimalist Flutter To-Do App with Hive Local Storage
-[![Release](https://img.shields.io/github/v/release/YOUR_USERNAME/YOUR_REPO_NAME?color=blue)](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME/releases/latest)
+
+[![Release](https://img.shields.io/github/v/release/marios889/todo_app?color=blue)](https://github.com/marios889/todo_app/releases/latest)
+
 A lightweight, responsive cross-platform mobile application designed to manage daily tasks efficiently. Built using Flutter and Dart, this project focuses on offline-first data persistence using Hive and modern, interactive UI gestures.
 
 *Inspired by Mitch Koko's Flutter Hive tutorial. Built as part of my ongoing mobile engineering portfolio to master local database CRUD operations and gesture-driven UI components.*
